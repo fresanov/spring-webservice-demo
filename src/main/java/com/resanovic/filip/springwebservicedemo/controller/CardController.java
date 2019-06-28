@@ -46,7 +46,7 @@ public class CardController {
         }).orElseThrow(() -> new RuntimeException("CardId " + cardId + "not found"));
     }
 
-    @DeleteMapping("/cardholsers/{cardholderId}/cards/{cardId}")
+    @DeleteMapping("/cardholders/{cardholderId}/cards/{cardId}")
     public ResponseEntity<?> deleteCard(@PathVariable (value = "cardholderId") Long cardholderId,
                                         @PathVariable (value = "cardId") Long cardId){
         return cardRepository.findByIdAndCardholderId(cardId, cardholderId).map(card -> {
